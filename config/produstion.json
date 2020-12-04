@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "baseUrl": "http://localhost/5000",
+  "mongoUri": "mongodb+srv://Coolbaba:123qwe@cluster0.pio6i.mongodb.net/webbylab?retryWrites=true&w=majority"
+}
