@@ -9,7 +9,7 @@ router.post('/',
         try {
             // parsing date
             if (! req.file || ! req.file.path) {
-                return res.status(400).json('Не верный формат файла');
+                return res.status(201).json('Не верный формат файла');
             }
              await fs.readFile(req.file.path, 'UTF8',
                 (err, data) => {
@@ -58,22 +58,23 @@ router.post('/',
                             films.push(film)
                         }
                     })
-                    saveForDataBase(films, res)
                 })
         }
         catch (err)
         {   console.log("error")
             res.status(500).json({message: "Что то пошло не так!!!!"})}
 
-        res.status(200).json('Фильмы сохранены')
+        res.status(200).json('Фильмы сохранены' )
 
 
 })
 
 
 async function saveForDataBase(data, res){
+    const countEnter = await Film.find.length
    await data.map(async film =>{
         try{
+
         let films = []
         let filmFromDB = await Film.findOne({name: film.name})
         if(!filmFromDB)
@@ -91,12 +92,14 @@ async function saveForDataBase(data, res){
                     }
             }
         }
+            const countEnter = await Film.find.length
         }
         catch (e) {
             res.status(500).json({message: "Что то пошло не так!!!!"})
         }
     })
-
+    const countExit = await Film.find.length
+    return countExit - countEnter
 }
 
 

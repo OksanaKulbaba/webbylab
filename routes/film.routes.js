@@ -1,8 +1,6 @@
 const {Router} = require('express')
 const Film = require('../models/Film')
 const Actor = require('../models/Actor')
-const {check, validationResult} = require('express-validator')
-const config = require('config')
 const router = Router()
 
 
@@ -14,7 +12,7 @@ router.post('/add',
             const {name, format, stars, release} = req.body
             const filmFuture = await Film.findOne({name})
             if (filmFuture) {
-             return res.status(400).json({message: "Такой фильм уже есть"})
+                return res.status(201).json({message: "Такой фильм уже существует"})
             }
             const film = new Film({name, format, release, stars: []})
             const films = [];

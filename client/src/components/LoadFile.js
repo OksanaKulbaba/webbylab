@@ -5,11 +5,12 @@ export const LoadFile  = () => {
 
     const [file, setFile] = useState('')
 
-const onFile = useCallback(async () => {
+    const onFile = useCallback(async () => {
        const formData = new FormData();
        formData.append('file', file);
-      const response =  await axios.post('/api/film/load', formData)
-       alert(response.data)
+       const response =  await axios.post('/api/film/load', formData)
+        if (response.status===400){console.log('400!!!!!!!')}
+       alert(JSON.stringify(response.data))
 
     },[file])
 
@@ -17,22 +18,36 @@ const onFile = useCallback(async () => {
        const fileInner = e.target.files[0];
        setFile(fileInner)
    }
+   const submittedFile = (e) =>{
+       e.preventDefault()
+        onFile()
+       setFile('')
+   }
 
-   useEffect(() =>{
-    onFile()}
-   , [onFile])
 
     return(
-        <div>
+        <div >
+            <h2 style={{color:'#2196F3'}}>
+                Download file:
+            </h2>
         <form>
             <table>
                 <tbody>
                 <tr>
-                    <td>Select File :</td>
+                    <td>
+                       Select a file to download:
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                    <input onChange={onFileChange} type="file"/>
+                    <input  onChange={onFileChange} type="file"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input  type="submit" value="Загрузить"
+                                className="btn blue"
+                                onClick={submittedFile }/>
                     </td>
                 </tr>
                 </tbody>

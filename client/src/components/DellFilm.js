@@ -26,7 +26,7 @@ export const DellFilm  = () => {
     }
     return(
         <>
-           Фильм {filmName} удален
+          <h2>  {filmName} movie was deleted</h2>
         </>
     )
 }
