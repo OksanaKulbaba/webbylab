@@ -15,7 +15,7 @@ export const SearchFilm = () =>{
                 <div className='input field' style={{display: 'flex', justifyContent: 'spaceBetween'}}>
                     <input type="text"
                            className="form-control"
-                           placeholder="Поиск по названию"
+                           placeholder="Search by movie title"
                            id='searchFilm'
                            name ="nameFilm"
                            value={film.nameFilm}
@@ -25,14 +25,14 @@ export const SearchFilm = () =>{
                     <Link to={`/film/${film.nameFilm}`}>
                         <button type="submit"
                                 className="btn blue"
-                        > Поиск </button>
+                        > Search </button>
                     </Link>
                 </div>
 
             <div className='input field' style={{display: 'flex', justifyContent: 'spaceBetween'}}>
                 <input type="text"
                        className="form-control"
-                       placeholder="Поиск по актеру"
+                       placeholder="Search by star"
                        id='searchActor'
                        name ="nameActor"
                        value={film.nameActor}
@@ -42,7 +42,7 @@ export const SearchFilm = () =>{
                 <Link to={`/film/actorname/${film.nameActor}`}>
                     <button type="submit"
                             className="btn blue"
-                    > Поиск </button>
+                    > Search </button>
                 </Link>
             </div>
         </div>

@@ -5,6 +5,7 @@ import {DetailPage} from "./pages/DetailPage";
 import {AddFilmsPage} from "./pages/AddFilmPage";
 import {DellFilm} from "./components/DellFilm";
 import {SearchFilm} from "./components/SearchFilm";
+import {LoadFilmPage} from "./pages/LoadFilmPage";
 
 export const useRoutes  = () => {
         return (
@@ -26,6 +27,9 @@ export const useRoutes  = () => {
                 </Route>
                 <Route path='/newFilm' exact >
                     <AddFilmsPage />
+                </Route>
+                <Route path='/loadFilm' exact >
+                    <LoadFilmPage />
                 </Route>
                 <Route path='/detail/:id' >
                     <DetailPage />

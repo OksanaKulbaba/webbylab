@@ -31,7 +31,7 @@ export const FilmCard  = (film) => {
                                         <td>
                                              <Link to={`/film/actor/${actor._id}`}>
                                                 <button type="button"
-                                                        className="btn blue"> Открыть </button>
+                                                        className="btn blue"> Open </button>
                                              </Link>
                                         </td>
                                     </tr>)
